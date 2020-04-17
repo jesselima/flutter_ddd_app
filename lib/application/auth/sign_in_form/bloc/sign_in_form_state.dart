@@ -13,11 +13,11 @@ abstract class SignInFormState with _$SignInFormState {
 
   // Factory for the initial state
   factory SignInFormState.initial() => SignInFormState(
-      emailAddress: null, 
-      password: null, 
-      showErrorMessages: null, 
-      isSubmitting: null, 
-      authFailureOrSuccessOption: null
+      emailAddress: EmailAddress(""), 
+      password: Password(""), 
+      showErrorMessages: false, 
+      isSubmitting: false, 
+      authFailureOrSuccessOption: none()
     );
 
 }
