@@ -12,7 +12,7 @@ abstract class ValueObject<T> {
   // Either<Failure, Success>
   Either<ValueFailure<T>, T> get value;
 
-  bool isValid() => value.isRight();
+   bool isValid() => value.isRight(); // <---
 
   // toString, equals, hashCode...
 
