@@ -9,7 +9,11 @@ import 'package:google_sign_in/google_sign_in.dart';
 import 'package:flutterdddapp/domain/feature/auth/auth_failure.dart';
 import 'package:flutterdddapp/domain/feature/auth/i_auth_facade.dart';
 import 'package:flutterdddapp/domain/feature/auth/value_objects.dart';
+import 'package:injectable/injectable.dart';
 
+
+@lazySingleton
+@RegisterAs(IAuthFacade)
 class FirebaseAuthFacade implements IAuthFacade {
 
   final FirebaseAuth _firebaseAuth;
@@ -90,7 +94,7 @@ class FirebaseAuthFacade implements IAuthFacade {
     final googleUser = await _googleSignIn.signIn();
     
     if (googleUser == null) {
-      return left(AuthFailure.cancelledByUser());
+      return left(const AuthFailure.cancelledByUser()); // const highligh by the lint
     }
 
     final googleAuthentication = await googleUser.authentication;

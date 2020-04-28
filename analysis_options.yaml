@@ -1,0 +1,8 @@
+include: package:lint/analysis_options.yaml
+
+analyzer:
+    errors:
+        # This will about methods to show as error for missing return values
+        missing_return: error
+        missing_required_param: error
+        must_be_immutable: error
